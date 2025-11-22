@@ -4,43 +4,36 @@
 
 @layer base {
   :root {
+    --brand-green: #00C96B;
+    --brand-mint: #59FF9C;
+    --brand-black: #0A0A0A;
+    --brand-white: #FFFFFF;
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-geist: 'Geist', system-ui, sans-serif;
-    --font-geist-mono: 'Geist Mono', monospace;
-    --font-mona: 'Mona Sans', system-ui, sans-serif;
-    --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
-    --font-manrope: 'Manrope', system-ui, sans-serif;
+    --font-heading: 'Space Grotesk', var(--font-sans);
   }
 
   html {
     font-family: var(--font-sans);
     font-feature-settings: "rlig" 1, "calt" 1;
+    background: var(--brand-black);
+    color: white;
   }
 
-  body {
-    @apply antialiased;
-  }
+  h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); }
+  body { @apply antialiased; }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
-@layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
-  }
+/* Micro-interactions */
+.glow-cta {
+  box-shadow: 0 0 24px rgba(0, 201, 107, 0.65);
+}
+.glow-cta:hover {
+  box-shadow: 0 0 42px rgba(0, 201, 107, 0.95);
+}
 
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
-  }
+/* Glass */
+.glass {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
 }
